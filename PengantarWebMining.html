@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Notebooks with MyST Markdown &#8212; My sample book</title>
+    <title>Pengantar Web Mining &#8212; My sample book</title>
   
   
   
@@ -62,10 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown-notebooks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PengantarWebMining';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
+    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Profile" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,9 +174,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="PengantarWebMining.html">Pengantar Web Mining</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pengantar Web Mining</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 
     </div>
@@ -247,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkdown-notebooks.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPengantarWebMining.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -277,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/markdown-notebooks.md" target="_blank"
+      <li><a href="_sources/PengantarWebMining.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -361,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>Pengantar Web Mining</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,9 +372,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pengantar Web Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penerapan-web-mining">Penerapan Web Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">Web Crawling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">Supervised Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining">Web Content Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">Web Structure Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">Deployment System</a></li>
 </ul>
             </nav>
         </div>
@@ -385,50 +393,114 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
-</section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="pengantar-web-mining">
+<h1>Pengantar Web Mining<a class="headerlink" href="#pengantar-web-mining" title="Permalink to this heading">#</a></h1>
+<section id="id1">
+<h2>Pengantar Web Mining<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Web mining adalah salah satu cabang ilmu data mining yang secara khusus diarahkan untuk menggali informasi maupun pola yang tersembunyi dalam data yang terdapat di World Wide Web (WWW). Data di web memiliki karakteristik yang sangat besar, bervariasi, dan sebagian besar tidak terstruktur, sehingga metode konvensional sering kali tidak cukup efektif.</p>
+<p>Bidang ini pertama kali diperkenalkan oleh Oren Etzioni pada tahun 1996. Secara sederhana, web mining dapat diartikan sebagai usaha mengombinasikan teknik data mining, machine learning, serta teknologi web untuk memperoleh informasi yang bermanfaat dari data online.</p>
+<p>Web mining memiliki tiga kategori utama:</p>
 <ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
+<li><p>Web Content Mining – menambang informasi dari isi atau konten web.</p></li>
+<li><p>Web Structure Mining – menganalisis hubungan antar halaman melalui hyperlink.</p></li>
+<li><p>Web Usage Mining – mengekstraksi pola perilaku pengguna berdasarkan data log dan interaksi mereka di web.</p></li>
 </ol>
-<p>That’s all that is needed to get started!</p>
+<p>Perbedaan utama dengan data mining biasa adalah pada sumber datanya. Data mining tradisional menggunakan data warehouse yang tersusun rapi, sedangkan web mining lebih sering menghadapi data tidak terstruktur yang tersebar di berbagai situs.</p>
 </section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
-</pre></div>
-</div>
+<section id="penerapan-web-mining">
+<h2>Penerapan Web Mining<a class="headerlink" href="#penerapan-web-mining" title="Permalink to this heading">#</a></h2>
+<p>Implementasi web mining kini banyak digunakan pada layanan digital, terutama karena jumlah data yang terus meningkat setiap detik. Beberapa penerapan yang paling umum antara lain:</p>
+<p>•	Mesin Pencari: meningkatkan performa search engine dengan mengklasifikasikan dokumen web dan mengenali relevansi halaman (contohnya Google dan Yahoo).</p>
+<p>•	Pencarian Vertikal: digunakan pada mesin pencari khusus (contohnya FatLens).</p>
+<p>•	Prediksi Perilaku Pengguna: membantu perusahaan memahami pola belanja atau navigasi pengguna.</p>
+<p>•	Optimasi Website: misalnya, memperbaiki desain halaman arahan (landing page) agar lebih sesuai dengan kebutuhan pengunjung.</p>
+<p>Tahapan proses yang biasa digunakan dalam web mining meliputi: pengumpulan data (crawling), pembersihan data, transformasi, ekstraksi fitur, hingga menemukan pola yang bermakna.</p>
+</section>
+<section id="web-crawling">
+<h2>Web Crawling<a class="headerlink" href="#web-crawling" title="Permalink to this heading">#</a></h2>
+<p>Web crawling adalah proses pengumpulan dan pengindeksan data dari internet yang dilakukan oleh program otomatis seperti web crawler, web spider, atau bot. Hasil dari crawling kemudian disimpan di database mesin pencari agar informasi dapat ditemukan dengan cepat.</p>
+<p>Proses ini sangat penting karena tanpa crawling, search engine tidak dapat memberikan hasil pencarian yang relevan. Crawling juga dikenal sebagai proses indexing, yakni membaca, mengarsip, dan menyimpan seluruh konten web untuk memudahkan pencarian di kemudian hari.</p>
+</section>
+<section id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">#</a></h2>
+<p>Data yang diperoleh dari web umumnya masih mentah, tidak teratur, dan mengandung banyak noise. Oleh karena itu, dilakukan data preprocessing agar data lebih siap untuk dianalisis.</p>
+<p>Tahapan preprocessing meliputi:</p>
+<ol class="arabic simple">
+<li><p>Data Cleaning – menghapus data tidak konsisten, memperbaiki nilai hilang, serta mengurangi noise.</p></li>
+<li><p>Data Integration – menggabungkan data dari berbagai sumber menjadi satu dataset besar.</p></li>
+<li><p>Data Transformation – mengubah format, struktur, atau nilai data agar sesuai dengan kebutuhan analisis</p></li>
+</ol>
+</section>
+<section id="supervised-learning">
+<h2>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Permalink to this heading">#</a></h2>
+<p>Supervised Learning adalah salah satu metode pembelajaran mesin (machine learning) yang menggunakan data berlabel (memiliki input dan output). Tujuannya adalah membuat model yang mampu memprediksi output baru berdasarkan pola data latih.</p>
+<p>Langkah-langkahnya meliputi:</p>
+<p>•	Mengumpulkan dataset yang relevan.</p>
+<p>•	Melakukan preprocessing (normalisasi, pembersihan, pembagian data training dan testing).</p>
+<p>•	Memilih model (misalnya regresi linier, decision tree, SVM, neural network).</p>
+<p>•	Melatih model menggunakan data training.</p>
+<p>•	Mengevaluasi dengan data testing menggunakan metrik seperti akurasi, presisi, recall, F1-score.</p>
+<p>•	Melakukan tuning parameter untuk meningkatkan kinerja.</p>
+<p>•	Menggunakan model untuk prediksi data baru.</p>
+</section>
+<section id="unsupervised-learning">
+<h2>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this heading">#</a></h2>
+<p>Berbeda dengan supervised learning, unsupervised learning bekerja tanpa data berlabel. Tujuan utamanya adalah menemukan pola tersembunyi, pengelompokan (clustering), atau asosiasi antar data.</p>
+<p>Contoh penerapannya:</p>
+<p>•	Segmentasi pelanggan berdasarkan kesamaan perilaku.</p>
+<p>•	Analisis pasar untuk menemukan kelompok produk yang sering dibeli bersamaan.</p>
+<p>•	Deteksi anomali dalam data keuangan atau jaringan komputer.</p>
+</section>
+<section id="web-content-mining">
+<h2>Web Content Mining<a class="headerlink" href="#web-content-mining" title="Permalink to this heading">#</a></h2>
+<p>Web Content Mining adalah proses otomatis untuk menemukan informasi dari konten yang terdapat pada halaman web, baik berupa teks, gambar, video, audio, metadata, maupun hyperlink. Fokus utamanya adalah mengekstraksi kata kunci atau data penting dari dokumen web.</p>
+<p>Terdapat dua strategi umum:</p>
+<ol class="arabic simple">
+<li><p>Melakukan mining secara langsung pada data web.</p></li>
+<li><p>Melakukan pencarian serta meningkatkan kualitas hasil pencarian, seperti cara kerja search engine.</p></li>
+</ol>
+<p>Teknik ini sering juga disebut Web Text Mining karena sebagian besar fokusnya pada data berbasis teks. Hubungannya erat dengan Information Retrieval (IR), namun dengan perkembangan teknologi, akurasi serta efisiensi analisis semakin meningkat, sehingga mampu menghemat biaya pengolahan data.</p>
+<p>Aplikasi Text Mining</p>
+<ol class="arabic simple">
+<li><p>Information Extraction: mengambil entitas penting seperti nama orang, tempat, tanggal, dan organisasi.</p></li>
+<li><p>Text Classification: mengelompokkan teks ke dalam kategori tertentu (misalnya berita politik, olahraga, atau hiburan).</p></li>
+<li><p>Text Clustering: membentuk kelompok dokumen tanpa label awal, hanya berdasarkan kesamaan isi.</p></li>
+<li><p>Topic Modeling: menemukan tema-tema yang tersembunyi dalam kumpulan dokumen besar.</p></li>
+<li><p>Sentiment Analysis: menentukan opini atau emosi pengguna (positif, negatif, netral).</p></li>
+<li><p>Text Summarization: membuat ringkasan otomatis dari teks yang panjang.</p></li>
+</ol>
+</section>
+<section id="web-usage-mining">
+<h2>Web Usage Mining<a class="headerlink" href="#web-usage-mining" title="Permalink to this heading">#</a></h2>
+<p>Web Usage Mining berfokus pada pola interaksi pengguna saat mengakses website. Data yang digunakan berasal dari log file server, cookies, clickstream, hingga query pencarian.</p>
+<p>Beberapa manfaatnya antara lain:</p>
+<p>•	Menyesuaikan tampilan halaman berdasarkan preferensi pengguna.</p>
+<p>•	Mengidentifikasi ketertarikan pelanggan terhadap produk tertentu.</p>
+<p>•	Menentukan target pasar dan strategi pemasaran yang lebih tepat.</p>
+<p>Aplikasi Web Usage Mining</p>
+<ol class="arabic simple">
+<li><p>Sistem Rekomendasi – merekomendasikan produk atau jasa berdasarkan riwayat kunjungan pengguna.</p></li>
+<li><p>Personalisasi Konten – menampilkan hasil pencarian sesuai profil pengguna.</p></li>
+<li><p>Clickstream Analysis – menganalisis urutan klik pengguna untuk memahami pola navigasi.</p></li>
+</ol>
+</section>
+<section id="web-structure-mining">
+<h2>Web Structure Mining<a class="headerlink" href="#web-structure-mining" title="Permalink to this heading">#</a></h2>
+<p>Web Structure Mining berfokus pada struktur hyperlink di web. Analisis ini dapat menunjukkan hubungan antar halaman, otoritas sebuah situs, serta hierarki informasi di dalam halaman.</p>
+<p>Jenis data yang digunakan antara lain:</p>
+<p>•	Hyperlink antar dokumen (inter-document links) – misalnya tautan artikel A ke artikel B, yang dapat digunakan untuk menentukan otoritas (contoh: Google PageRank).</p>
+<p>•	Struktur internal dokumen (intra-document structure) – berdasarkan Document Object Model (DOM) yang menggambarkan susunan elemen dalam halaman web.</p>
+<p>Dengan teknik ini, peneliti maupun pengembang dapat memahami bagaimana informasi terhubung, sehingga memudahkan pembuatan ringkasan website, sistem navigasi, maupun optimasi SEO.</p>
+</section>
+<section id="deployment-system">
+<h2>Deployment System<a class="headerlink" href="#deployment-system" title="Permalink to this heading">#</a></h2>
+<p>Deployment adalah tahap akhir dari siklus pengembangan sistem, yaitu ketika aplikasi sudah siap digunakan dan ditempatkan di lingkungan produksi. Tujuannya adalah agar aplikasi bisa diakses langsung oleh pengguna dan memberikan manfaat sesuai kebutuhan.</p>
+<p>Tahapan Deployment</p>
+<ol class="arabic simple">
+<li><p>Persiapan: meninjau ulang aplikasi sebelum dipublikasikan.</p></li>
+<li><p>Pengujian: memastikan aplikasi berjalan baik di lingkungan uji yang menyerupai kondisi nyata.</p></li>
+<li><p>Konfigurasi Produksi: menyesuaikan database, server, jaringan, dan layanan pendukung agar aplikasi dapat bekerja optimal sesuai skala bisnis</p></li>
+</ol>
 </section>
 </section>
 
@@ -463,13 +535,22 @@ See the YAML at the top of this page for example.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="notebooks.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Profile</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Content with notebooks</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -487,9 +568,16 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pengantar Web Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penerapan-web-mining">Penerapan Web Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">Web Crawling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">Supervised Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining">Web Content Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">Web Structure Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">Deployment System</a></li>
 </ul>
   </nav></div>
 
