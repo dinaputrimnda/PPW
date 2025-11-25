@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Graph &amp; Page Rank &#8212; My sample book</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'graph&pagerank';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="UTS_PPW.html" />
+    <link rel="prev" title="UTS" href="UTS_PPW.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,13 +172,20 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="PengantarWebMining.html">Pengantar Web Mining</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crawllingData.html">Crawling Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawlingPTA.html">Crawling PTA UTM</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_beritarevisi.html">Crawlling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CrawlingLink.html">Crawling Link</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Pemrosesan_Data_Berita_%26_PTA.html">Pemrosesan Data Berita &amp; PTA</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="tfidf.html">TF-IDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Topic%20Modelling%20LDA%20KlasifikasiSVM.html">Topic Modelling LDA Klasifikasi SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_PPW.html">UTS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Graph &amp; Page Rank</a></li>
 </ul>
 
     </div>
@@ -351,9 +358,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -364,19 +369,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Graph & Page Rank</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -386,7 +383,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="graph-page-rank">
+<h1>Graph &amp; Page Rank<a class="headerlink" href="#graph-page-rank" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -644,6 +643,7 @@ Node https://www2.trunojoyo.ac.id/#  → PageRank: 0.011975
 <img alt="_images/aef219c5647872bace7c8b69f055efa1be07bfeab0a00959e0bd1833ae6eedac.png" src="_images/aef219c5647872bace7c8b69f055efa1be07bfeab0a00959e0bd1833ae6eedac.png" />
 </div>
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -681,7 +681,7 @@ Node https://www2.trunojoyo.ac.id/#  → PageRank: 0.011975
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">UTS</p>
       </div>
     </a>
 </div>
@@ -690,21 +690,6 @@ Node https://www2.trunojoyo.ac.id/#  → PageRank: 0.011975
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>

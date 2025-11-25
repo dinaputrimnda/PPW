@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Crawlling Berita &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'crawling_beritarevisi';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Crawling Link" href="CrawlingLink.html" />
+    <link rel="prev" title="Crawling PTA UTM" href="crawlingPTA.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dina.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/dina.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Profile
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="PengantarWebMining.html">Pengantar Web Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawlingPTA.html">Crawling PTA UTM</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawlling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CrawlingLink.html">Crawling Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pemrosesan_Data_Berita_%26_PTA.html">Pemrosesan Data Berita &amp; PTA</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="tfidf.html">TF-IDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Topic%20Modelling%20LDA%20KlasifikasiSVM.html">Topic Modelling LDA Klasifikasi SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_PPW.html">UTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph%26pagerank.html">Graph &amp; Page Rank</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcrawling_beritarevisi.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/crawling_beritarevisi.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Crawlling Berita</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="crawlling-berita">
+<h1>Crawlling Berita<a class="headerlink" href="#crawlling-berita" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Crawler berita Detik untuk kategori nasional dan internasional.</span>
+
+<span class="sd">Fitur:</span>
+<span class="sd">- Ambil artikel dari kategori nasional &amp; internasional</span>
+<span class="sd">- Looping ke banyak halaman indeks</span>
+<span class="sd">- Simpan ke CSV &amp; JSON</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="c1"># Konfigurasi</span>
+<span class="n">HEADERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;CrawlerBeritaDetik/1.0 (+https://example.com)&#39;</span>
+<span class="p">}</span>
+<span class="n">SLEEP_BETWEEN_REQUESTS</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">MAX_PAGES</span> <span class="o">=</span> <span class="mi">20</span>   <span class="c1"># jumlah halaman indeks yang akan dilalui (bisa ditambah)</span>
+
+<span class="c1"># ------------------ UTIL ------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_get</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">HEADERS</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">TIMEOUT</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">r</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gagal mengambil </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_article_basic</span><span class="p">(</span><span class="n">soup</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">paragraphs</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)]</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paragraphs</span> <span class="k">if</span> <span class="n">p</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">title</span><span class="p">,</span> <span class="n">body</span>
+
+<span class="c1"># ------------------ DETIK ------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">crawl_detik</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;nasional&quot;</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://news.detik.com/indeks&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_articles</span> <span class="ow">and</span> <span class="n">page</span> <span class="o">&lt;=</span> <span class="n">MAX_PAGES</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?tag=</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">&amp;page=</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">safe_get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+        <span class="n">links</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">href</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;detik.com&#39;</span> <span class="ow">in</span> <span class="n">href</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;/read/&#39;</span> <span class="ow">in</span> <span class="n">href</span> <span class="ow">or</span> <span class="s1">&#39;/berita/&#39;</span> <span class="ow">in</span> <span class="n">href</span><span class="p">):</span>
+                <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">links</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detik -&gt;&quot;</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SLEEP_BETWEEN_REQUESTS</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">safe_get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">published</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;div.detail__date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;div.detail__date&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;div.detail__body-text&#39;</span><span class="p">)</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
+                <span class="n">paragraphs</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">content</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)]</span>
+                <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paragraphs</span> <span class="k">if</span> <span class="n">p</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">title</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">extract_article_basic</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;detik&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;kategori&#39;</span><span class="p">:</span> <span class="n">tag</span><span class="p">,</span>
+                <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">link</span><span class="p">,</span>
+                <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+                <span class="s1">&#39;published&#39;</span><span class="p">:</span> <span class="n">published</span><span class="p">,</span>
+                <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="n">body</span>
+            <span class="p">})</span>
+        <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="c1"># ------------------ SAVE ------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_csv</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;berita_detik.csv&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">records</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">keys</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CSV tersimpan:&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_json</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;berita_detik.json&#39;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;JSON tersimpan:&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># ------------------ MAIN ------------------</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">records</span> <span class="o">+=</span> <span class="n">crawl_detik</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;nasional&quot;</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">records</span> <span class="o">+=</span> <span class="n">crawl_detik</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;internasional&quot;</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+    <span class="n">save_csv</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="s1">&#39;berita_detik_nasional_internasional.csv&#39;</span><span class="p">)</span>
+    <span class="n">save_json</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="s1">&#39;berita_detik_nasional_internasional.json&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total artikel:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228601/fadli-zon-raih-tokoh-penggerak-ekosistem-pelindungan-kebudayaan-detikcom-awards-2025
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228600/kementerian-p2mi-raih-detikcom-awards-2025-lembaga-pendorong-pekerja-migran-naik-kelas
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228596/ahmad-doli-raih-detikcom-awards-2025-ajak-semua-pihak-kembangkan-demokrasi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228590/menteri-wihaji-terima-detikcom-awards-beri-salam-hormat-ke-pencegah-stunting
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228578/sarmuji-jadikan-detikcom-awards-sebagai-motivasi-bekerja-lebih-baik
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228575/prabowo-gelar-rapat-khusus-di-mabes-tni-evaluasi-kopdes-merah-putih
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228571/tito-karnavian-raih-detikcom-awards-2025-tokoh-pendorong-akselerasi-pertumbuhan-dan-stabilisasi-ekonomi-daerah
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228570/agus-andrianto-raih-tokoh-transformasi-pelayanan-imigrasi-dan-pemasyarakatan-berdampak-detikcom-awards
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228568/jurus-pam-jaya-capai-target-100-layanan-air-bersih-di-jakarta
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228559/pramono-raih-detikcom-awards-rano-karno-jadi-semangat-buat-jakarta
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228555/ferry-juliantono-raih-detikcom-awards-2025-tokoh-pemberdayaan-koperasi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228553/raih-detikcom-awards-2025-khofifah-paparkan-capaian-transportasi-ekonomi-jatim
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228551/sarmuji-raih-tokoh-penggerak-kemandirian-ekonomi-pesantren-dan-masyarakat-detikcom-awards-2025
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228547/wihaji-raih-detikcom-awards-2025-tokoh-pencegahan-stunting-berdampak
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228545/pramono-anung-raih-detikcom-awards-2025-tokoh-kesetaraan-akses-pendidikan-masyarakat-perkotaan
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228542/polres-tangsel-bongkar-13-kasus-narkoba-dalam-2-bulan-jerat-18-tersangka
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228541/sakti-trenggono-raih-detikcom-awards-2025-tokoh-pendorong-kesejahteraan-nelayan
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228540/jaksa-agung-dedikasikan-detikcom-awards-untuk-para-jaksa-yang-berjuang
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228539/presiden-pks-kenang-tim-8-bareng-ahy-kami-pernah-bersama-walau-ada-masalah
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228537/said-abdullah-raih-detikcom-awards-2025-tokoh-pengawal-stabilitas-fiskal-apbn
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228520/kapolri-raih-detikcom-awards-2025-bertekad-beri-pelayanan-sesuai-harapan-publik
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detik -&gt; https://news.detik.com/berita/d-8228519/ketum-ppp-mardiono-raih-tokoh-penguatan-ekonomi-umat-detikcom-awards-2025
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">112</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>     <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">112</span>     <span class="n">records</span> <span class="o">+=</span> <span class="n">crawl_detik</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;nasional&quot;</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="n">records</span> <span class="o">+=</span> <span class="n">crawl_detik</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;internasional&quot;</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>     <span class="n">save_csv</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="s1">&#39;berita_detik_nasional_internasional.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">Cell In[1], line 66,</span> in <span class="ni">crawl_detik</span><span class="nt">(tag, max_articles)</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="k">break</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detik -&gt;&quot;</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">66</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SLEEP_BETWEEN_REQUESTS</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">r</span> <span class="o">=</span> <span class="n">safe_get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="crawlingPTA.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Crawling PTA UTM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CrawlingLink.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crawling Link</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

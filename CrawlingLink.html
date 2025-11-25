@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'CrawlingLink';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pemrosesan Data Berita &amp; PTA" href="Pemrosesan_Data_Berita_%26_PTA.html" />
+    <link rel="prev" title="Crawlling Berita" href="crawling_beritarevisi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -127,8 +129,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -173,13 +173,20 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="PengantarWebMining.html">Pengantar Web Mining</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crawllingData.html">Crawling Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawlingPTA.html">Crawling PTA UTM</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_beritarevisi.html">Crawlling Berita</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling Link</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Pemrosesan_Data_Berita_%26_PTA.html">Pemrosesan Data Berita &amp; PTA</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="tfidf.html">TF-IDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Topic%20Modelling%20LDA%20KlasifikasiSVM.html">Topic Modelling LDA Klasifikasi SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_PPW.html">UTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph%26pagerank.html">Graph &amp; Page Rank</a></li>
 </ul>
 
     </div>
@@ -387,39 +394,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting builtwith
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading builtwith-1.3.4.tar.gz (34 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25ldone
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Preparing metadata (pyproject.toml) ... ?25ldone
-?25hRequirement already satisfied: six in /home/codespace/.local/lib/python3.12/site-packages (from builtwith) (1.17.0)
-Building wheels for collected packages: builtwith
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for builtwith (pyproject.toml) ... ?25ldone
-?25h  Created wheel for builtwith: filename=builtwith-1.3.4-py3-none-any.whl size=36121 sha256=073881bb6587d138be5726aeb892e132371996fef3e4611553bb89c9aed01e80
-  Stored in directory: /home/codespace/.cache/pip/wheels/7f/2d/b2/606e3df914d4aeeab99c4a4e3e9a61673d2293c2e346db00c8
-Successfully built builtwith
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: builtwith
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed builtwith-1.3.4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: builtwith in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.3.4)
+Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site-packages (from builtwith) (1.17.0)
 </pre></div>
 </div>
 </div>
@@ -435,7 +411,9 @@ Successfully built builtwith
 Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (3.4.4)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (3.11)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (2.5.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (2025.10.5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (2025.10.5)
 </pre></div>
 </div>
 </div>
@@ -674,6 +652,24 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.l
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="crawling_beritarevisi.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Crawlling Berita</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pemrosesan_Data_Berita_%26_PTA.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pemrosesan Data Berita &amp; PTA</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

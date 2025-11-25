@@ -41,7 +41,7 @@ df.head()
 ----- stderr -----
 [nltk_data] Downloading package stopwords to
 [nltk_data]     /home/codespace/nltk_data...
-[nltk_data]   Unzipping corpora/stopwords.zip.
+[nltk_data]   Package stopwords is already up-to-date!
 ------------------
 
 [31m---------------------------------------------------------------------------[39m

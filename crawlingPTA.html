@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'crawlingPTA';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Crawlling Berita" href="crawling_beritarevisi.html" />
+    <link rel="prev" title="Pengantar Web Mining" href="PengantarWebMining.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -127,8 +129,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -173,13 +173,20 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="PengantarWebMining.html">Pengantar Web Mining</a></li>
-<li class="toctree-l1"><a class="reference internal" href="crawllingData.html">Crawling Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling PTA UTM</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_beritarevisi.html">Crawlling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CrawlingLink.html">Crawling Link</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Pemrosesan_Data_Berita_%26_PTA.html">Pemrosesan Data Berita &amp; PTA</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="tfidf.html">TF-IDF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Topic%20Modelling%20LDA%20KlasifikasiSVM.html">Topic Modelling LDA Klasifikasi SVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_PPW.html">UTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph%26pagerank.html">Graph &amp; Page Rank</a></li>
 </ul>
 
     </div>
@@ -401,9 +408,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: builtwith in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.3.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site-packages (from builtwith) (1.17.0)
+Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site-packages (from builtwith) (1.17.0)
 </pre></div>
 </div>
 </div>
@@ -505,7 +510,7 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Terjadi kesalahan saat mengakses https://pta.trunojoyo.ac.id/welcome/index/2: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /welcome/index/2 (Caused by NameResolutionError(&quot;&lt;urllib3.connection.HTTPSConnection object at 0x7d23500387a0&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)&quot;))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Terjadi kesalahan saat mengakses https://pta.trunojoyo.ac.id/welcome/index/2: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /welcome/index/2 (Caused by NameResolutionError(&quot;&lt;urllib3.connection.HTTPSConnection object at 0x776ed6d2cda0&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)&quot;))
 </pre></div>
 </div>
 </div>
@@ -654,7 +659,7 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.l
 <span class="ne">--&gt; </span><span class="mi">205</span>     <span class="k">raise</span> <span class="n">NameResolutionError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 <span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="k">except</span> <span class="n">SocketTimeout</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
-<span class="ne">NameResolutionError</span>: &lt;urllib3.connection.HTTPSConnection object at 0x7d23205adf40&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)
+<span class="ne">NameResolutionError</span>: &lt;urllib3.connection.HTTPSConnection object at 0x776ef92c0590&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)
 
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
@@ -688,7 +693,7 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.l
 <span class="ne">--&gt; </span><span class="mi">519</span>     <span class="k">raise</span> <span class="n">MaxRetryError</span><span class="p">(</span><span class="n">_pool</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">reason</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">reason</span>  <span class="c1"># type: ignore[arg-type]</span>
 <span class="g g-Whitespace">    </span><span class="mi">521</span> <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Incremented Retry for (url=&#39;</span><span class="si">%s</span><span class="s2">&#39;): </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">new_retry</span><span class="p">)</span>
 
-<span class="ne">MaxRetryError</span>: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /c_search/byprod/1/1 (Caused by NameResolutionError(&quot;&lt;urllib3.connection.HTTPSConnection object at 0x7d23205adf40&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)&quot;))
+<span class="ne">MaxRetryError</span>: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /c_search/byprod/1/1 (Caused by NameResolutionError(&quot;&lt;urllib3.connection.HTTPSConnection object at 0x776ef92c0590&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)&quot;))
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -743,7 +748,7 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.l
 <span class="g g-Whitespace">    </span><span class="mi">679</span> <span class="k">except</span> <span class="n">ClosedPoolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
 
-<span class="ne">ConnectionError</span>: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /c_search/byprod/1/1 (Caused by NameResolutionError(&quot;&lt;urllib3.connection.HTTPSConnection object at 0x7d23205adf40&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)&quot;))
+<span class="ne">ConnectionError</span>: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /c_search/byprod/1/1 (Caused by NameResolutionError(&quot;&lt;urllib3.connection.HTTPSConnection object at 0x776ef92c0590&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)&quot;))
 </pre></div>
 </div>
 </div>
@@ -1120,6 +1125,24 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.l
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="PengantarWebMining.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pengantar Web Mining</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="crawling_beritarevisi.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crawlling Berita</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
