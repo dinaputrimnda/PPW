@@ -427,7 +427,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8e78c095-f355-4514-8a53-a32d67142399" class="colab-df-container">
+  <div id="df-ef9e1123-3c26-4255-8bf1-1e02247f3e97" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -518,7 +518,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8e78c095-f355-4514-8a53-a32d67142399')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ef9e1123-3c26-4255-8bf1-1e02247f3e97')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -570,12 +570,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8e78c095-f355-4514-8a53-a32d67142399 button.colab-df-convert');
+        document.querySelector('#df-ef9e1123-3c26-4255-8bf1-1e02247f3e97 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8e78c095-f355-4514-8a53-a32d67142399');
+        const element = document.querySelector('#df-ef9e1123-3c26-4255-8bf1-1e02247f3e97');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -595,8 +595,8 @@ document.write(`
   </div>
 
 
-    <div id="df-83c4583e-c1b0-4061-9129-27e096f2e8b2">
-      <button class="colab-df-quickchart" onclick="quickchart('df-83c4583e-c1b0-4061-9129-27e096f2e8b2')"
+    <div id="df-9ba7205e-6792-46da-ba1c-0ea0a501f75b">
+      <button class="colab-df-quickchart" onclick="quickchart('df-9ba7205e-6792-46da-ba1c-0ea0a501f75b')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -715,7 +715,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-83c4583e-c1b0-4061-9129-27e096f2e8b2 button');
+            document.querySelector('#df-9ba7205e-6792-46da-ba1c-0ea0a501f75b button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -807,7 +807,77 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_mapping_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">num_to_letters</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;0→A, 1→B, ..., 25→Z, 26→AA, dst.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">26</span><span class="p">))</span> <span class="o">+</span> <span class="n">result</span>
+        <span class="n">n</span> <span class="o">//=</span> <span class="mi">26</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_web_usage</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    - Filter hanya URL .html</span>
+<span class="sd">    - Membuat label huruf untuk setiap halaman</span>
+<span class="sd">    - Membentuk sesi 20 menit per Host</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># --- Filter .html ---</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.html&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># --- Buat mapping URL → huruf ---</span>
+    <span class="n">unique_urls</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="n">url_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">url</span><span class="p">:</span> <span class="n">num_to_letters</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_urls</span><span class="p">)}</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;URL_Label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">url_map</span><span class="p">)</span>
+
+    <span class="c1"># --- Sortir ---</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Host&quot;</span><span class="p">,</span> <span class="s2">&quot;Timestamp&quot;</span><span class="p">])</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># --- Proses sesi per host ---</span>
+    <span class="k">for</span> <span class="n">host</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Host&quot;</span><span class="p">):</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Timestamp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">sessions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cur_session</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prev_time</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Timestamp&quot;</span><span class="p">]</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;URL_Label&quot;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">prev_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cur_session</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ts</span><span class="p">,</span> <span class="n">label</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">ts</span> <span class="o">-</span> <span class="n">prev_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">60</span>
+
+                <span class="c1"># sesi baru jika &gt;20 menit</span>
+                <span class="k">if</span> <span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+                    <span class="n">sessions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cur_session</span><span class="p">)</span>
+                    <span class="n">cur_session</span> <span class="o">=</span> <span class="p">[(</span><span class="n">ts</span><span class="p">,</span> <span class="n">label</span><span class="p">)]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cur_session</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ts</span><span class="p">,</span> <span class="n">label</span><span class="p">))</span>
+
+            <span class="n">prev_time</span> <span class="o">=</span> <span class="n">ts</span>
+
+        <span class="c1"># simpan sesi terakhir</span>
+        <span class="k">if</span> <span class="n">cur_session</span><span class="p">:</span>
+            <span class="n">sessions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cur_session</span><span class="p">)</span>
+
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="n">host</span><span class="p">,</span>
+            <span class="s2">&quot;Sessions&quot;</span><span class="p">:</span> <span class="n">sessions</span>
+        <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">results</span><span class="p">,</span> <span class="n">url_map</span><span class="p">,</span> <span class="n">df</span>
+
+<span class="c1"># Call process_web_usage to define results and url_map</span>
+<span class="n">results</span><span class="p">,</span> <span class="n">url_map</span><span class="p">,</span> <span class="n">processed_df</span> <span class="o">=</span> <span class="n">process_web_usage</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">url_mapping_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
     <span class="p">{</span><span class="s2">&quot;URL&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="s2">&quot;Label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">}</span>
     <span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">url_map</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 <span class="p">])</span>
@@ -818,7 +888,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3c35fb99-00be-41fb-8a64-120022c171bf" class="colab-df-container">
+  <div id="df-ecde760a-31e1-4484-9b7b-abbbd51bd9c9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -904,7 +974,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3c35fb99-00be-41fb-8a64-120022c171bf')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ecde760a-31e1-4484-9b7b-abbbd51bd9c9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -956,12 +1026,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3c35fb99-00be-41fb-8a64-120022c171bf button.colab-df-convert');
+        document.querySelector('#df-ecde760a-31e1-4484-9b7b-abbbd51bd9c9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3c35fb99-00be-41fb-8a64-120022c171bf');
+        const element = document.querySelector('#df-ecde760a-31e1-4484-9b7b-abbbd51bd9c9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -981,8 +1051,8 @@ document.write(`
   </div>
 
 
-    <div id="df-13e13928-f955-4e31-95ea-67d007b77904">
-      <button class="colab-df-quickchart" onclick="quickchart('df-13e13928-f955-4e31-95ea-67d007b77904')"
+    <div id="df-256cb934-e4d5-4489-a1aa-a7f01f8fadcc">
+      <button class="colab-df-quickchart" onclick="quickchart('df-256cb934-e4d5-4489-a1aa-a7f01f8fadcc')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1101,14 +1171,14 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-13e13928-f955-4e31-95ea-67d007b77904 button');
+            document.querySelector('#df-256cb934-e4d5-4489-a1aa-a7f01f8fadcc button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_be8a2968-f85d-401d-860d-3db3f4086ed0">
+  <div id="id_d29c171a-f52b-4312-b31b-a26f5e10bb39">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1152,7 +1222,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_be8a2968-f85d-401d-860d-3db3f4086ed0 button.colab-df-generate');
+        document.querySelector('#id_d29c171a-f52b-4312-b31b-a26f5e10bb39 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1192,7 +1262,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4e352edf-33fa-49ef-956e-84535b45932c" class="colab-df-container">
+  <div id="df-81cd3f5e-688c-41a6-9456-09f6e8c55cc5" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1302,7 +1372,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4e352edf-33fa-49ef-956e-84535b45932c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-81cd3f5e-688c-41a6-9456-09f6e8c55cc5')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1354,12 +1424,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4e352edf-33fa-49ef-956e-84535b45932c button.colab-df-convert');
+        document.querySelector('#df-81cd3f5e-688c-41a6-9456-09f6e8c55cc5 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4e352edf-33fa-49ef-956e-84535b45932c');
+        const element = document.querySelector('#df-81cd3f5e-688c-41a6-9456-09f6e8c55cc5');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1379,8 +1449,8 @@ document.write(`
   </div>
 
 
-    <div id="df-34c638ce-14e0-4087-a62f-8a0068f5f3ab">
-      <button class="colab-df-quickchart" onclick="quickchart('df-34c638ce-14e0-4087-a62f-8a0068f5f3ab')"
+    <div id="df-f4c677fe-f153-4198-932a-fd592f3992ca">
+      <button class="colab-df-quickchart" onclick="quickchart('df-f4c677fe-f153-4198-932a-fd592f3992ca')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1499,14 +1569,14 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-34c638ce-14e0-4087-a62f-8a0068f5f3ab button');
+            document.querySelector('#df-f4c677fe-f153-4198-932a-fd592f3992ca button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_67d38583-18f1-4099-b4d3-f374f24b2002">
+  <div id="id_2854fbac-424e-40a1-95a3-3a0f86c27914">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1550,7 +1620,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_67d38583-18f1-4099-b4d3-f374f24b2002 button.colab-df-generate');
+        document.querySelector('#id_2854fbac-424e-40a1-95a3-3a0f86c27914 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1577,7 +1647,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4bc81c66-e7fa-4f3e-b512-278e1d77a458" class="colab-df-container">
+  <div id="df-e882ff56-1af6-4d5e-b049-e766e837e5b7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1663,7 +1733,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4bc81c66-e7fa-4f3e-b512-278e1d77a458')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e882ff56-1af6-4d5e-b049-e766e837e5b7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1715,12 +1785,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4bc81c66-e7fa-4f3e-b512-278e1d77a458 button.colab-df-convert');
+        document.querySelector('#df-e882ff56-1af6-4d5e-b049-e766e837e5b7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4bc81c66-e7fa-4f3e-b512-278e1d77a458');
+        const element = document.querySelector('#df-e882ff56-1af6-4d5e-b049-e766e837e5b7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1740,8 +1810,8 @@ document.write(`
   </div>
 
 
-    <div id="df-a982a3cf-927c-45c6-9b32-b05e9c1dbe71">
-      <button class="colab-df-quickchart" onclick="quickchart('df-a982a3cf-927c-45c6-9b32-b05e9c1dbe71')"
+    <div id="df-22ea2605-f110-42f9-a4cc-24e10c995ff7">
+      <button class="colab-df-quickchart" onclick="quickchart('df-22ea2605-f110-42f9-a4cc-24e10c995ff7')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1860,14 +1930,14 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-a982a3cf-927c-45c6-9b32-b05e9c1dbe71 button');
+            document.querySelector('#df-22ea2605-f110-42f9-a4cc-24e10c995ff7 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_7c1d5998-d181-4ee3-a8fa-a487315b70b3">
+  <div id="id_6c5a4e30-d7d2-4845-88c8-7e2062079728">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1911,7 +1981,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_7c1d5998-d181-4ee3-a8fa-a487315b70b3 button.colab-df-generate');
+        document.querySelector('#id_6c5a4e30-d7d2-4845-88c8-7e2062079728 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2008,7 +2078,13 @@ document.write(`
 
                 <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+    <span class="c1"># ==== URUTKAN KOLUM: Host -&gt; Time -&gt; Labels ====</span>
+    <span class="n">ordered_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Host&quot;</span><span class="p">,</span> <span class="s2">&quot;Time&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">all_labels</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">ordered_cols</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df</span>
 
 
 <span class="n">binary_table</span> <span class="o">=</span> <span class="n">build_binary_table</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">url_map</span><span class="p">)</span>
@@ -2016,7 +2092,7 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Tabel Binary Halaman Dikunjungi ===&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">binary_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 
-<span class="c1"># Simpan CSV bila diperlukan</span>
+<span class="c1"># Simpan CSV</span>
 <span class="n">binary_table</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;binary_web_usage.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2026,7 +2102,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-a9e82398-bb77-4364-baa2-8c90a3440760" class="colab-df-container">
+  <div id="df-776f545d-a00a-417c-9aa1-87740b33eb76" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2045,6 +2121,8 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Host</th>
+      <th>Time</th>
       <th>A</th>
       <th>AA</th>
       <th>AB</th>
@@ -2053,9 +2131,9 @@ document.write(`
       <th>AE</th>
       <th>AF</th>
       <th>AG</th>
-      <th>AH</th>
-      <th>AI</th>
       <th>...</th>
+      <th>Q</th>
+      <th>R</th>
       <th>S</th>
       <th>T</th>
       <th>U</th>
@@ -2064,16 +2142,14 @@ document.write(`
       <th>X</th>
       <th>Y</th>
       <th>Z</th>
-      <th>Time</th>
-      <th>Host</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>***.novo.dk</td>
+      <td>12:17</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2090,13 +2166,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>12:17</td>
-      <td>***.novo.dk</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0</td>
-      <td>0</td>
+      <td>***.novo.dk</td>
+      <td>12:17</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2114,13 +2190,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>12:17</td>
-      <td>***.novo.dk</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0</td>
-      <td>0</td>
+      <td>***.novo.dk</td>
+      <td>12:23</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2138,13 +2214,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>12:23</td>
-      <td>***.novo.dk</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0</td>
-      <td>0</td>
+      <td>***.novo.dk</td>
+      <td>07:02</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2162,13 +2238,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>07:02</td>
-      <td>***.novo.dk</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0</td>
-      <td>0</td>
+      <td>***.novo.dk</td>
+      <td>07:05</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2186,13 +2262,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>07:05</td>
-      <td>***.novo.dk</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0</td>
-      <td>0</td>
+      <td>***.novo.dk</td>
+      <td>07:07</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2210,13 +2286,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>07:07</td>
-      <td>***.novo.dk</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0</td>
-      <td>0</td>
+      <td>001.msy4.communique.net</td>
+      <td>06:55</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2234,13 +2310,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>06:55</td>
-      <td>001.msy4.communique.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0</td>
-      <td>0</td>
+      <td>007.thegap.com</td>
+      <td>21:24</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2258,13 +2334,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>21:24</td>
-      <td>007.thegap.com</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>0</td>
-      <td>0</td>
+      <td>007.thegap.com</td>
+      <td>21:28</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2282,13 +2358,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>21:28</td>
-      <td>007.thegap.com</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0</td>
-      <td>0</td>
+      <td>007.thegap.com</td>
+      <td>21:37</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2306,13 +2382,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>21:37</td>
-      <td>007.thegap.com</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>0</td>
-      <td>0</td>
+      <td>007.thegap.com</td>
+      <td>23:23</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2330,13 +2406,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>23:23</td>
-      <td>007.thegap.com</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>11:36</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2354,13 +2430,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>11:36</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>12:18</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2378,13 +2454,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>12:18</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>12:18</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2402,13 +2478,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>12:18</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>09:33</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2426,11 +2502,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>09:33</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>15</th>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>21:02</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -2439,8 +2517,6 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -2450,13 +2526,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>21:02</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>00:08</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2474,13 +2550,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>00:08</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>00:12</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2498,13 +2574,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>00:12</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>00:18</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2522,13 +2598,13 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>00:18</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>0</td>
-      <td>0</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>00:36</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2546,8 +2622,8 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>00:36</td>
-      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -2556,7 +2632,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a9e82398-bb77-4364-baa2-8c90a3440760')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-776f545d-a00a-417c-9aa1-87740b33eb76')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2608,12 +2684,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a9e82398-bb77-4364-baa2-8c90a3440760 button.colab-df-convert');
+        document.querySelector('#df-776f545d-a00a-417c-9aa1-87740b33eb76 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a9e82398-bb77-4364-baa2-8c90a3440760');
+        const element = document.querySelector('#df-776f545d-a00a-417c-9aa1-87740b33eb76');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2633,8 +2709,8 @@ document.write(`
   </div>
 
 
-    <div id="df-9182dd62-ebb1-49d3-b463-58f149912547">
-      <button class="colab-df-quickchart" onclick="quickchart('df-9182dd62-ebb1-49d3-b463-58f149912547')"
+    <div id="df-db962263-7f9f-4b97-aeff-ba283b415abd">
+      <button class="colab-df-quickchart" onclick="quickchart('df-db962263-7f9f-4b97-aeff-ba283b415abd')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -2753,7 +2829,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-9182dd62-ebb1-49d3-b463-58f149912547 button');
+            document.querySelector('#df-db962263-7f9f-4b97-aeff-ba283b415abd button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
