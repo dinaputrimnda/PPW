@@ -31,7 +31,7 @@ print(raw_text[:1000])
 
 [31m---------------------------------------------------------------------------[39m
 [31mFileNotFoundError[39m                         Traceback (most recent call last)
-[32m/tmp/ipykernel_8067/4050799808.py[39m in [36m?[39m[34m()[39m
+[32m/tmp/ipykernel_22385/4050799808.py[39m in [36m?[39m[34m()[39m
 [32m      1[39m [38;5;66;03m# Jalankan fungsi[39;00m
 [32m      2[39m pdf_path = [33m"/content/pepertugas.pdf"[39m
 [32m----> [39m[32m3[39m raw_text = extract_text_from_pdf(pdf_path)
@@ -39,7 +39,7 @@ print(raw_text[:1000])
 [32m      5[39m print([33m"Jumlah karakter:"[39m, len(raw_text))
 [32m      6[39m print([33m"\nContoh teks:\n"[39m)
 
-[32m/tmp/ipykernel_8067/1589951990.py[39m in [36m?[39m[34m(pdf_path)[39m
+[32m/tmp/ipykernel_22385/1589951990.py[39m in [36m?[39m[34m(pdf_path)[39m
 [32m      1[39m [38;5;28;01mdef[39;00m extract_text_from_pdf(pdf_path):
 [32m----> [39m[32m2[39m     doc = fitz.open(pdf_path)
 [32m      3[39m     text = [33m""[39m
