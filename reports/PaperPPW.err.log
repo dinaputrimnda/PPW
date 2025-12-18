@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/asyncio/base_events.py", line 684, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Jalankan fungsi
+pdf_path = "/content/pepertugas.pdf"
+raw_text = extract_text_from_pdf(pdf_path)
+
+print("Jumlah karakter:", len(raw_text))
+print("\nContoh teks:\n")
+print(raw_text[:1000])
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[32m/tmp/ipykernel_6613/4050799808.py[39m in [36m?[39m[34m()[39m
+[32m      1[39m [38;5;66;03m# Jalankan fungsi[39;00m
+[32m      2[39m pdf_path = [33m"/content/pepertugas.pdf"[39m
+[32m----> [39m[32m3[39m raw_text = extract_text_from_pdf(pdf_path)
+[32m      4[39m 
+[32m      5[39m print([33m"Jumlah karakter:"[39m, len(raw_text))
+[32m      6[39m print([33m"\nContoh teks:\n"[39m)
+
+[32m/tmp/ipykernel_6613/1589951990.py[39m in [36m?[39m[34m(pdf_path)[39m
+[32m      1[39m [38;5;28;01mdef[39;00m extract_text_from_pdf(pdf_path):
+[32m----> [39m[32m2[39m     doc = fitz.open(pdf_path)
+[32m      3[39m     text = [33m""[39m
+[32m      4[39m     [38;5;28;01mfor[39;00m page [38;5;28;01min[39;00m doc:
+[32m      5[39m         text += page.get_text()
+
+[32m/usr/local/python/3.12.1/lib/python3.12/site-packages/pymupdf/__init__.py[39m in [36m?[39m[34m(self, filename, stream, filetype, rect, width, height, fontsize)[39m
+[32m   3061[39m                     self.page_count2 = extra.page_count_pdf
+[32m   3062[39m                 [38;5;28;01melse[39;00m:
+[32m   3063[39m                     self.page_count2 = extra.page_count_fz
+[32m   3064[39m         [38;5;28;01mfinally[39;00m:
+[32m-> [39m[32m3065[39m             JM_mupdf_show_errors = JM_mupdf_show_errors_old
+
+[31mFileNotFoundError[39m: no such file: '/content/pepertugas.pdf'
+
